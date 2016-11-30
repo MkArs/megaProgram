@@ -1,0 +1,28 @@
+public interface shape {
+void draw();
+void erase();
+}
+
+public class Circle implements Shape {
+public void draw() {
+System.out.println(“Circle.draw()”);
+}
+
+}
+public class Oval implements Shape{
+public void draw() {
+System.out.println(“Oval.draw()”);
+
+public calss TestPol {
+
+  public static void main(String[] args) {
+    Shape shape1 = new Circle();
+    Shape shape2 = new Oval();
+    testPoly(shape1);
+    testPoly(shape2);
+    }
+   
+  public static void testPoly(Shape shape) {
+    shape.draw();
+    }
+}
