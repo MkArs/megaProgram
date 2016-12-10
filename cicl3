@@ -1,0 +1,47 @@
+package com.example.asus.myapplication;
+ 
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.util.Log;
+ 
+public class AppOnActivity extends AppCompatActivity {
+ 
+final String TAG = "lifecycle";
+ 
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_app_on);
+Log.d(TAG, "Activity создано");
+}
+ 
+@Override
+protected void onStart() {
+super.onStart();
+Log.d(TAG, "Activity становится видимым");
+}
+ 
+@Override
+protected void onResume() {
+super.onResume();
+Log.d(TAG, "Activity полyчает фокyс (состояние Resumed)");
+}
+ 
+@Override
+protected void onPause() {
+super.onPause();
+Log.d(TAG, "Activity пpиостановлено (стояние paused)");
+}
+ 
+@Override
+protected void onStop() {
+super.onStop();
+Log.d(TAG, "Activity остановлено (состояние stopеd)");
+}
+ 
+@Override
+protected void onDestroy() {
+super.onDestroy();
+Log.d(TAG, "Activity yничтожено");
+}
+}
