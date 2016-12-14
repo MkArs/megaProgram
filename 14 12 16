@@ -1,0 +1,96 @@
+package com.example.asus.androidchronometer;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.os.SystemClock;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Chronometer;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        final Chronometer myChronometer = (Chronometer)findViewById(R.id.chronometer);
+        Button buttonStart = (Button)findViewById(R.id.buttonstart);
+        Button buttonStop = (Button)findViewById(R.id.buttonstop);
+        Button buttonReset = (Button)findViewById(R.id.buttonreset);
+
+        buttonStart.setOnClickListener(new Button.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                myChronometer.start();
+            }});
+
+        buttonStop.setOnClickListener(new Button.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                myChronometer.stop();
+
+            }});
+
+        buttonReset.setOnClickListener(new Button.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                myChronometer.setBase(SystemClock.elapsedRealtime());
+
+            }});
+
+
+    }
+}
+
+____________________________________________________________________________________________________________________________
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayoutLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <Chronometer
+        android:id="@+id/chronometer"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Start"
+        android:id="@+id/buttonstart"
+        android:visibility="visible" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Stop"
+        android:id="@+id/buttonstop"
+        android:visibility="visible" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Reset"
+        android:id="@+id/buttonreset"
+        android:visibility="visible" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        android:layout_below="@+id/button"
+        android:layout_toLeftOf="@+id/button2"
+        android:layout_toStartOf="@+id/button2"
+        android:layout_marginTop="204dp" />
+</LinearLayoutLayout>
